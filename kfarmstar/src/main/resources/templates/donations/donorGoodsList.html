@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layout/default}">
+	  
+	<th:block layout:fragment="customTitle">
+		<title th:text="${title}"></title>
+	</th:block>
+	<th:block layout:fragment="customContents">
+		<form id="donorGoodsListForm" th:action="@{donations/donorGoodsList}" method="post">
+			<div class="container">
+				<table border="1">
+					<colgroup>
+		                <col width="15%"/>
+		                <col width="*"/>
+		                <col width="15%"/>
+		                <col width="20%"/>
+		            </colgroup>
+					<thead>
+						<tr>
+							<th>기부 게시글 코드</th>
+							<th>판매자 별 사업장 관리번호</th>
+							<th>기증자 아이디</th>
+							<th>기부자 휴대폰번호</th>
+							<th>사업장 연락처</th>
+							<th>기부 상품 사진</th>
+							<th>기부 내용</th>
+							<th>기부 요청 등록 일자</th>
+							<th>기부 상품갯수</th>
+							<th>기부 상품명</th>
+							<th>기부 상품 배송 방법</th>
+						</tr>	
+					</thead>
+					<tbody>
+						<tr th:if="${not #lists.isEmpty(donorGoodsList)}" th:each="l : ${donorGoodsList}">
+							<td th:text="${l.donationBoardCode}"></td>
+							<td th:text="${l.sellerStoreNum}"></td>
+							<td th:text="${l.sellerStoreName}"></td>
+							<td th:text="${l.member.memberId}"></td>
+							<td th:text="${l.memberPhone}"></td>
+							<td th:text="${l.sellerStorePhone}"></td>
+							<td th:text="${l.goodsDonationImg}"></td>
+							<td th:text="${l.donationContent}"></td>
+							<td th:text="${l.donationRequestEntryDate}"></td>
+							<td th:text="${l.goodsDonationCount}"></td>
+							<td th:text="${l.goodsDonationName}"></td>
+							<td th:text="${l.goodsDonationDeliveryWay}"></td>
+							<td>
+								<a th:if="${session.SLEVEL != '3'}" th:href="@{/donations/modifyDonorGoods(donationBoardCode=${l.donationBoardCode})}">수정</a>
+								<a th:unless="${session.SLEVEL != '3'}" href="javascript:void(0);" onclick="alert('구매자는 상품을 수정할 수 없습니다.');">수정</a>
+							</td>
+							<td>
+								<a th:if="${session.SLEVEL != '3'}" th:href="@{/donations/removeDonorGoods(donationBoardCode=${l.donationBoardCode})}">삭제</a>
+								<a th:unless="${session.SLEVEL != '3'}" href="javascript:void(0);" onclick="alert('구매자는 상품을 삭제할 수 없습니다.');">삭제</a>
+							</td>
+						</tr>
+						<tr th:unless="${not #lists.isEmpty(donorGoodsList)}">
+							<td colspan="11">등록된 상품의 정보가 없습니다.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</form>
+	</th:block>
+	  
+</html>

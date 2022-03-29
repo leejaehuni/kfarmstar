@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/default}">
+	<!-- 사용자 정의 title -->
+	<th:block layout:fragment="customTitle">
+		<title th:text="${title}"></title>
+	</th:block>
+	
+	<th:block layout:fragment="customCss">
+		<!-- iCheck -->
+		<link th:href="@{/vendors/iCheck/skins/flat/green.css}" rel="stylesheet">
+		<!-- bootstrap-daterangepicker -->
+		<link th:href="@{/vendors/bootstrap-daterangepicker/daterangepicker.css}" rel="stylesheet">
+	</th:block>
+
+	<th:block layout:fragment="customJsScript">
+		<!-- iCheck -->
+	   	<script th:src="@{/vendors/iCheck/icheck.min.js}"></script>
+	   	<!-- searchDate -->
+		<script th:src="@{/vendors/jquery/dist/searchDate.js}"></script>
+	</th:block>
+	
+	<!-- 사용자 정의 Script-->
+	<th:block layout:fragment="customScript">
+	</th:block>	
+	
+	<th:block layout:fragment="customContents">
+		<div class="col-md-12 col-sm-12 mt-5">
+			<div class="x_panel">
+				<div class="x_title">
+					<h2>회원 목록</h2>
+					<div class="clearfix"></div>
+				</div>
+			
+				<div class="x_content">
+					<form id="reset_form">
+						<!-- START : 검색 바 -->
+						<div th:include="member/searchDate :: searchDateFragment"></div>
+						<!-- END : 검색 바 -->
+						<div class="mb-2">
+							<label>권한별 조회</label>
+							<div class="btn-group" data-toggle="buttons">
+								<label class="btn btn-default">
+									<input type="checkbox" name="options" id="option1" class="checkBox"> 구매자
+								</label>
+								<label class="btn btn-default">
+									<input type="checkbox" name="options" id="option2" class="checkBox"> 판매자
+								</label>
+								<label class="btn btn-default">
+									<input type="checkbox" name="options" id="option3" class="checkBox"> 관리자
+								</label>
+							</div>
+						</div>
+						<div class="form-row md-2">
+							<div class="form-group col-md-2">
+								<select id=" " class="form-control text-center">
+									<option selected> :: 선택 :: </option>
+									<option>아이디</option>
+									<option>이름</option>
+									<option>휴대폰번호</option>
+									<option>생년월일</option>
+								</select>
+							</div>
+							<div class="form-group col-md-6">
+								<input type="text" class="form-control" name="searchValue" placeholder="Search"
+								aria-label="Text input with dropdown button">
+							</div>
+							
+							<div class="form-group col-md-2">
+								<button type="reset" class="btn btn-primary" id="btn_reset" style="float: right;"><i class="fa fa-minus-circle"></i> 초기화</button>
+								<button type="button" class="btn btn-primary" style="float: right;"><i class="fa fa-search"></i> 검색</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="table-responsive">
+					<div class="clearfix">
+                        <div class="float-left">
+                            Total : <span></span>
+                        </div>
+                        <div class="float-right pr-2">
+                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal">삭제</button>
+                        </div>
+                    </div>	
+						<table class="table table-striped jambo_table bulk_action">
+							<thead>
+								<tr class="headings">
+									<th>
+										<input type="checkbox" id="check-all" class="flat">
+									</th>
+									<th class="column-title">회원아이디</th>
+									<th class="column-title">회원권한</th>
+									<th class="column-title">회원이름</th>
+									<th class="column-title">휴대폰번호</th>
+									<th class="column-title">생년월일</th>
+									<th class="column-title">가입일자</th>
+									<th class="column-title">상세조회</th>
+									<th class="bulk-actions" colspan="8">
+										<a class="antoo" style="color:#fff; font-weight:500;">전체 선택 ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="even pointer">
+									<td class="a-center">
+										<input type="checkbox" class="flat" name="table_records">
+									</td>
+									<td>
+										id001
+									</td>
+									<td>구매자</td>
+									<td>이재훈</td>
+									<td>010-9515-6785</td>
+									<td>971231</td>
+									<td>2021-11-15 16:38:39</td>
+									<td>
+										<a th:href="@{/member/detailMember}"><button type="button">상세조회</button> </a>
+									</td>
+								</tr>
+								<tr class="odd pointer">
+									<td class="a-center">
+										<input type="checkbox" class="flat" name="table_records">
+									</td>
+								<td>
+									id002
+								</td>
+									<td>구매자</td>
+									<td>이까꿍</td>
+									<td>010-8574-6785</td>
+									<td>210414</td>
+									<td>2022-04-28</td>
+									<td>
+										<a th:href="@{member/detailMember}"><button type="button">상세조회</button> </a>
+									</td>
+								</tr>
+								<tr class="even pointer">
+									<td class="a-center">
+										<input type="checkbox" class="flat" name="table_records">
+									</td>
+									<td>id003</td>
+									<td>판매자</td>
+									<td>홍길동</td>
+									<td>010-7777-7777</td>
+									<td>960428</td>
+									<td>2021-01-01 01:01:01</td>
+									<td>
+										<a th:href="@{member/detailMember}"><button type="button">상세조회</button> </a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+				
+				</div>
+				<div class="ln_solid"></div>
+				<nav aria-label="Page navigation example">
+					<ul class="pagination justify-content-center">
+						<li class="page-item disabled">
+							<a class="page-link" href="#" tabindex="-1">Previous</a>
+						</li>
+						<li class="page-item"><a class="page-link" href="#">1</a></li>
+						<li class="page-item"><a class="page-link" href="#">2</a></li>
+						<li class="page-item"><a class="page-link" href="#">3</a></li>
+						<li class="page-item">
+							<a class="page-link" href="#">Next</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		
+		<!-- Modal -->
+		<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+		 		<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">사업장 정보 삭제</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						정말 삭제하시겠습니까?
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">취소</button>
+						<button type="button" class="btn btn-danger">삭제</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</th:block>
+	
+	

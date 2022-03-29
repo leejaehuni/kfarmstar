@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/default}">
+	
+	<!-- 사용자 정의 title -->
+	<th:block layout:fragment="customTitle">
+		<title th:text="${title}"></title>
+	</th:block>
+	
+	<!-- 사용자 정의 Css -->
+	<th:block layout:fragment="customCss">
+	</th:block>
+	
+	<!-- 사용자 정의 JsScript 파일-->
+	<th:block layout:fragment="customJsScript">
+	</th:block>
+	
+	<!-- 사용자 정의 Script-->
+	<th:block layout:fragment="customScript">
+	</th:block>
+	
+	<th:block layout:fragment="customContents">
+
+	<div class="col-md-12 col-sm-12">
+		<div class="x_panel">
+			<div class="x_title">
+				<h2>
+					결제 내역 상세 정보<small>Payment Details Info</small>
+				</h2>
+				<div class="clearfix"></div>
+			</div>
+			<div class="x_content">
+				<form class="form-horizontal form-label-left">
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th scope="col" style="width: 10%;">#</th>
+								<th scope="col">결제내역관리</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">결제 상품 정보</th>
+								<td>
+									<div class="form-group row">
+										<div class="col-md-3 col-sm-3">
+											<img th:src="@{/build/images/orange.jpg}" class="img-fluid"
+												alt="Responsive image">
+										</div>
+										<div class="col-md-6 col-sm-6 ">
+											<input type="file">
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label"> 상품 대분류 명</label>
+										</div>
+										<div class="col-md-6 col-sm-6 ">
+											<select id=" " class="form-control text-center">
+										        <option selected> :: 선택 :: </option>
+										        <option>option</option>
+										        <option>option</option>
+										        <option>option</option>
+									      </select>
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label">상품 소분류 명</label>
+										</div>
+										<div class="col-md-6 col-sm-6 ">
+											<select id=" " class="form-control text-center">
+										        <option selected> :: 선택 :: </option>
+										        <option>option</option>
+										        <option>option</option>
+										        <option>option</option>
+									      </select>
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label">상품명</label>
+										</div>
+										<div class="col-md-6 col-sm-6 ">
+											<input type="text" class="form-control"
+													value="지수네 오렌지" readonly="readonly">
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">구매자 배송 정보</th>
+								<td>
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label">아이디</label>
+										</div>
+										<div class="col-md-6 col-sm-6 ">
+											<input type="text" class="form-control"
+													value="id001" readonly="readonly">
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label">배송지 주소</label>
+										</div>
+										<div class="col-md-2 col-sm-2">
+											<input type="text" class="form-control" readonly="readonly">
+										</div>
+										<div class="align-self-center">
+											<i class="fa fa-minus"></i>
+										</div>
+										<div class="col-md-2 col-sm-2">
+											<input type="text" class="form-control" readonly="readonly">
+										</div>
+										<div class="col-md-3 col-sm-3">
+											<a href="#"><button type="button" class="btn btn-info">우편번호찾기</button></a>
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-md-6 offset-md-2">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-md-6 offset-md-2">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label">수령인 이름</label>
+										</div>
+										<div class="col-md-6 col-sm-6 ">
+											<input type="text" class="form-control"
+												value="">
+										</div>
+									</div>
+									
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label">수령인 전화번호</label>
+										</div>
+										<div class="col-md-6 col-sm-6 ">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label">회원 주소</label>
+										</div>
+										<div class="col-md-2 col-sm-2">
+											<input type="text" class="form-control" readonly="readonly">
+										</div>
+										<div class="align-self-center">
+											<i class="fa fa-minus"></i>
+										</div>
+										<div class="col-md-2 col-sm-2">
+											<input type="text" class="form-control" readonly="readonly">
+										</div>
+										<div class="col-md-3 col-sm-3">
+											<a href="#"><button type="button" class="btn btn-info">우편번호찾기</button></a>
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-md-6 offset-md-2">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-md-6 offset-md-2">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label">수령인 휴대폰번호</label>
+										</div>
+										<div class="col-md-1 col-sm-1">
+											<input type="text" class="form-control" value="010">
+										</div>
+										<div class="align-self-center">
+											<i class="fa fa-minus"></i>
+										</div>
+										<div class="col-md-2 col-sm-2">
+											<input type="text" class="form-control">
+										</div>
+										<div class="align-self-center">
+											<i class="fa fa-minus"></i>
+										</div>
+										<div class="col-md-2 col-sm-2">
+											<input type="text" class="form-control">
+										</div>
+										<div class="col-md-2 col-sm-2">
+											<a href="#"><button type="button" class="btn btn-info">수정</button></a>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">구매자 결제 정보</th>
+								<td>
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label">결제 종류</label>
+										</div>
+										<div class="col-md-6 col-sm-6 ">
+											<select id=" " class="form-control text-center">
+										        <option selected> :: 선택 :: </option>
+										        <option>무통장입금</option>
+										        <option>휴대폰</option>
+										        <option>신용카드</option>
+									      </select>
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label">결제 휴대폰 통신사</label>
+										</div>
+										<div class="col-md-6 col-sm-6">
+											<select id=" " class="form-control text-center">
+										        <option selected> :: 선택 :: </option>
+										        <option>SKT</option>
+										        <option>KT</option>
+										        <option>U-PLUS</option>
+									      </select>
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label">결제 휴대폰 번호</label>
+										</div>
+										<div class="col-md-1 col-sm-1">
+											<input type="number" class="form-control" value="010">
+										</div>
+										<div class="align-self-center">
+											<i class="fa fa-minus"></i>
+										</div>
+										<div class="col-md-2 col-sm-2">
+											<input type="number" class="form-control">
+										</div>
+										<div class="align-self-center">
+											<i class="fa fa-minus"></i>
+										</div>
+										<div class="col-md-2 col-sm-2">
+											<input type="number" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label">무통장 결제 은행</label>
+										</div>
+										<div class="col-md-6 col-sm-6">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label">무통장 결제 계좌번호</label>
+										</div>
+										<div class="col-md-6 col-sm-6">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label">무통장 입금시 현금영수증 신청 여부</label>
+										</div>
+										<div class="col-md-6 col-sm-6">
+											<div class="btn-group" data-toggle="buttons">
+											  <label class="btn btn-default active">
+											    <input type="radio" name="options" id="option1" checked> 신청
+											  </label>
+											  <label class="btn btn-default">
+											    <input type="radio" name="options" id="option2"> 미신청
+											  </label>
+											</div>
+										</div>
+									</div>
+									
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label">현금 영수증 용도</label>
+										</div>
+										<div class="col-md-6 col-sm-6">
+											<select id=" " class="form-control text-center">
+										        <option selected> :: 선택 :: </option>
+										        <option>개인소득공제용</option>
+										        <option>지출증빙용</option>
+									      </select>
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label">소득공제용 휴대폰 번호</label>
+										</div>
+										<div class="col-md-1 col-sm-1">
+											<input type="number" class="form-control" value="010">
+										</div>
+										<div class="align-self-center">
+											<i class="fa fa-minus"></i>
+										</div>
+										<div class="col-md-2 col-sm-2">
+											<input type="number" class="form-control">
+										</div>
+										<div class="align-self-center">
+											<i class="fa fa-minus"></i>
+										</div>
+										<div class="col-md-2 col-sm-2">
+											<input type="number" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label">현금영수증 사업자 번호</label>
+										</div>
+										<div class="col-md-2 col-sm-2">
+											<input type="number" class="form-control">
+										</div>
+										<div class="align-self-center">
+											<i class="fa fa-minus"></i>
+										</div>
+										<div class="col-md-2 col-sm-2">
+											<input type="number" class="form-control">
+										</div>
+										<div class="align-self-center">
+											<i class="fa fa-minus"></i>
+										</div>
+										<div class="col-md-2 col-sm-2">
+											<input type="number" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label">신용카드 결제 은행</label>
+										</div>
+										<div class="col-md-6 col-sm-6">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label">신용카드 번호</label>
+										</div>
+										<div class="col-md-1 col-sm-1">
+											<input type="number" class="form-control" readonly="readonly">
+										</div>
+										<div class="align-self-center">
+											<i class="fa fa-minus"></i>
+										</div>
+										<div class="col-md-1 col-sm-1">
+											<input type="number" class="form-control" readonly="readonly">
+										</div>
+										<div class="align-self-center">
+											<i class="fa fa-minus"></i>
+										</div>
+										<div class="col-md-1 col-sm-1">
+											<input type="number" class="form-control" readonly="readonly">
+										</div>
+										<div class="align-self-center">
+											<i class="fa fa-minus"></i>
+										</div>
+										<div class="col-md-1 col-sm-1">
+											<input type="number" class="form-control" readonly="readonly">
+										</div>
+									</div>
+									
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label">수령인 전화번호</label>
+										</div>
+										<div class="col-md-6 col-sm-6 ">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">상품 결제 정보</th>
+								<td>
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label">결제완료코드</label>
+										</div>
+										<div class="col-md-6 col-sm-6 ">
+											<input type="text" class="form-control" readonly="readonly" value="payment_code_001">
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label">결제 금액</label>
+										</div>
+										<div class="col-md-6 col-sm-6">
+											<input type="number" class="form-control" value="90000">
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label">포인트 사용 금액</label>
+										</div>
+										<div class="col-md-6 col-sm-6">
+											<input type="number" class="form-control" value="2000">
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label">총 결제 금액</label>
+										</div>
+										<div class="col-md-6 col-sm-6">
+											<input type="number" class="form-control" value="92000">
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label">지급 포인트 금액</label>
+										</div>
+										<div class="col-md-6 col-sm-6">
+											<input type="number" class="form-control" value="460">
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label">결제 날짜</label>
+										</div>
+										<div class="col-md-6 col-sm-6">
+											<input type="date" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label">신용카드 번호</label>
+										</div>
+										<div class="col-md-1 col-sm-1">
+											<input type="number" class="form-control" readonly="readonly">
+										</div>
+										<div class="align-self-center">
+											<i class="fa fa-minus"></i>
+										</div>
+										<div class="col-md-1 col-sm-1">
+											<input type="number" class="form-control" readonly="readonly">
+										</div>
+										<div class="align-self-center">
+											<i class="fa fa-minus"></i>
+										</div>
+										<div class="col-md-1 col-sm-1">
+											<input type="number" class="form-control" readonly="readonly">
+										</div>
+										<div class="align-self-center">
+											<i class="fa fa-minus"></i>
+										</div>
+										<div class="col-md-1 col-sm-1">
+											<input type="number" class="form-control" readonly="readonly">
+										</div>
+									</div>
+									
+									<div class="form-group row">
+										<div class="col-md-2 col-sm-2">
+											<label class="control-label">수령인 전화번호</label>
+										</div>
+										<div class="col-md-6 col-sm-6 ">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="ln_solid"></div>
+					<div class="form-group">
+						<div class="col-md-8 col-sm-8  offset-md-4">
+							<button type="button" class="btn btn-primary">취소</button>
+							<button type="reset" class="btn btn-danger">삭제</button>
+							<button type="submit" class="btn btn-success">수정</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+</th:block>
+</html>`

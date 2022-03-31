@@ -105,50 +105,18 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr class="even pointer">
+								<tr class="even pointer" th:each="l : ${memberList}">
 									<td class="a-center">
 										<input type="checkbox" class="flat" name="table_records">
 									</td>
-									<td>
-										id001
-									</td>
-									<td>구매자</td>
-									<td>이재훈</td>
-									<td>010-9515-6785</td>
-									<td>971231</td>
-									<td>2021-11-15 16:38:39</td>
+									<td th:text="${l.memberId}"></td>
+									<td th:text="${l.memberLevel}"></td>
+									<td th:text="${l.memberName}"></td>
+									<td th:text="${l.memberPhone}"></td>
+									<td th:text="${l.memberBirth}"></td>
+									<td th:text="${l.memberDate}"></td>
 									<td>
 										<a th:href="@{/member/detailMember}"><button type="button">상세조회</button> </a>
-									</td>
-								</tr>
-								<tr class="odd pointer">
-									<td class="a-center">
-										<input type="checkbox" class="flat" name="table_records">
-									</td>
-								<td>
-									id002
-								</td>
-									<td>구매자</td>
-									<td>이까꿍</td>
-									<td>010-8574-6785</td>
-									<td>210414</td>
-									<td>2022-04-28</td>
-									<td>
-										<a th:href="@{member/detailMember}"><button type="button">상세조회</button> </a>
-									</td>
-								</tr>
-								<tr class="even pointer">
-									<td class="a-center">
-										<input type="checkbox" class="flat" name="table_records">
-									</td>
-									<td>id003</td>
-									<td>판매자</td>
-									<td>홍길동</td>
-									<td>010-7777-7777</td>
-									<td>960428</td>
-									<td>2021-01-01 01:01:01</td>
-									<td>
-										<a th:href="@{member/detailMember}"><button type="button">상세조회</button> </a>
 									</td>
 								</tr>
 							</tbody>

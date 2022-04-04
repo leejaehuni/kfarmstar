@@ -14,64 +14,133 @@
 		<result column="seller_ad_discount" 			property="sellerAdDiscount"/>
 		<result column="delivery_price_discount" 		property="deliveryPriceDiscount"/>
 		<association property="member" javaType="Member">
-			<result column="member_id" 			property="memberId"/>
-			<result column="member_name" 		property="memberName"/>
-			<result column="member_level" 		property="memberLevel"/>
-			<result column="member_pw" 			property="memberPw"/>
-			<result column="member_nickname" 	property="memberNickname"/>
-			<result column="member_phone" 		property="memberPhone"/>
-			<result column="member_birth" 		property="memberBirth"/>
-			<result column="member_email" 		property="memberEmail"/>
-			<result column="member_point" 		property="memberPoint"/>
-			<result column="member_date" 		property="memberDate"/>
+			<result column="member_id" 				property="memberId"/>
+			<result column="member_name" 			property="memberName"/>
+			<result column="member_level" 			property="memberLevel"/>
+			<result column="member_pw" 				property="memberPw"/>
+			<result column="member_nickname" 		property="memberNickname"/>
+			<result column="member_phone" 			property="memberPhone"/>
+			<result column="member_post_num" 		property="memberPostNum"/>
+			<result column="member_addr" 			property="memberAddr"/>
+			<result column="member_detail_addr" 	property="memberDetailAddr"/>
+			<result column="member_birth" 			property="memberBirth"/>
+			<result column="member_email" 			property="memberEmail"/>
+			<result column="member_point" 			property="memberPoint"/>
+			<result column="member_date" 			property="memberDate"/>
 		</association>
 	</resultMap>
 	
 	<resultMap type="Member" id="memberResultMap">
-		<result column="member_id" 			property="memberId"/>
-		<result column="member_name" 		property="memberName"/>
-		<result column="member_level" 		property="memberLevel"/>
-		<result column="member_pw" 			property="memberPw"/>
-		<result column="member_nickname" 	property="memberNickname"/>
-		<result column="member_phone" 		property="memberPhone"/>
-		<result column="member_birth" 		property="memberBirth"/>
-		<result column="member_email" 		property="memberEmail"/>
-		<result column="member_point" 		property="memberPoint"/>
-		<result column="member_date" 		property="memberDate"/>
+		<result column="member_id" 				property="memberId"/>
+		<result column="member_name" 			property="memberName"/>
+		<result column="member_level" 			property="memberLevel"/>
+		<result column="member_pw" 				property="memberPw"/>
+		<result column="member_nickname" 		property="memberNickname"/>
+		<result column="member_phone" 			property="memberPhone"/>
+		<result column="member_post_num" 		property="memberPostNum"/>
+		<result column="member_addr" 			property="memberAddr"/>
+		<result column="member_detail_addr" 	property="memberDetailAddr"/>
+		<result column="member_birth" 			property="memberBirth"/>
+		<result column="member_email" 			property="memberEmail"/>
+		<result column="member_point" 			property="memberPoint"/>
+		<result column="member_date" 			property="memberDate"/>
 	</resultMap>
 	
 	<resultMap type="sellerStore" id="sellerResultMap">
-		<result column="seller_store_num" 		property="sellerStoreNum"/>
-		<result column="member_id" 				property="memberId"/>
-		<result column="seller_store_name" 		property="sellerStoreName"/>
-		<result column="seller_license_num" 	property="sellerLicenseNum"/>
-		<result column="seller_store_phone" 	property="sellerStorePhone"/>
-		<result column="seller_entry_date" 		property="sellerEntryDate"/>
-		<result column="seller_store_addr" 		property="sellerStoreAddr"/>
-		<result column="seller_tax_type" 		property="sellerTaxType"/>
+		<result column="seller_store_num" 			property="sellerStoreNum"/>
+		<result column="member_id" 					property="memberId"/>
+		<result column="seller_store_name" 			property="sellerStoreName"/>
+		<result column="seller_license_num" 		property="sellerLicenseNum"/>
+		<result column="seller_store_phone" 		property="sellerStorePhone"/>
+		<result column="seller_entry_date" 			property="sellerEntryDate"/>
+		<result column="seller_store_post_num" 		property="sellerStorePostNum"/>
+		<result column="seller_store_addr" 			property="sellerStoreAddr"/>
+		<result column="seller_store_detail_addr" 	property="sellerStoreDetailAddr"/>
+		<result column="seller_tax_type" 			property="sellerTaxType"/>
 		<association property="member" javaType="Member">
-			<result column="member_id" 			property="memberId"/>
-			<result column="member_name" 		property="memberName"/>
-			<result column="member_level" 		property="memberLevel"/>
-			<result column="member_pw" 			property="memberPw"/>
-			<result column="member_nickname" 	property="memberNickname"/>
-			<result column="member_phone" 		property="memberPhone"/>
-			<result column="member_birth" 		property="memberBirth"/>
-			<result column="member_email" 		property="memberEmail"/>
-			<result column="member_point" 		property="memberPoint"/>
-			<result column="member_date" 		property="memberDate"/>
+			<result column="member_id" 				property="memberId"/>
+			<result column="member_name" 			property="memberName"/>
+			<result column="member_level" 			property="memberLevel"/>
+			<result column="member_pw" 				property="memberPw"/>
+			<result column="member_nickname" 		property="memberNickname"/>
+			<result column="member_phone" 			property="memberPhone"/>
+			<result column="member_post_num" 		property="memberPostNum"/>
+			<result column="member_addr" 			property="memberAddr"/>
+			<result column="member_detail_addr" 	property="memberDetailAddr"/>
+			<result column="member_birth" 			property="memberBirth"/>
+			<result column="member_email" 			property="memberEmail"/>
+			<result column="member_point" 			property="memberPoint"/>
+			<result column="member_date" 			property="memberDate"/>
 		</association>
 	</resultMap>
+	
+	<update id="modifySellerStore" parameterType="SellerStore">
+		/* 판매자 사업장 정보 수정 */
+		UPDATE
+			seller_store
+		SET
+			 seller_store_num = #{sellerStoreNum}
+			,seller_store_name = #{sellerStoreName}
+			,seller_license_num = #{sellerLicenseNum}
+			,seller_store_phone = #{sellerStorePhone}
+			,seller_store_post_num = #{sellerStorePostNum}
+			,seller_store_addr = #{sellerStoreAddr}
+			,seller_store_detail_addr = #{sellerStoreDetailAddr}
+			,seller_tax_type = #{sellerTaxType}
+		WHERE
+			seller_store_num = #{sellerStoreNum}
+	</update>
+	
+	<select id="getSellStoreInfo" parameterType="String" resultMap="sellerResultMap">
+		/* 판매자 사업장 상세 조회 */
+		SELECT
+			 s.seller_store_num
+			,s.member_id
+			,s.seller_store_name
+			,s.seller_license_num
+			,s.seller_store_phone
+			,s.seller_store_post_num
+			,s.seller_store_addr
+			,s.seller_store_detail_addr
+			,s.seller_entry_date
+			,s.seller_tax_type
+			,m.member_phone
+		FROM 
+			seller_store AS s
+			INNER JOIN
+			member AS m
+		WHERE
+			s.seller_store_num = #{sellerStoreNum}
+	</select>
+	
+	<update id="modifyMember" parameterType="Member">
+		/* 회원 정보 수정 */
+		UPDATE member
+		SET
+			 member_id = #{memberId}
+			,member_name = #{memberName}
+			,member_level = #{memberLevel}
+			,member_nickname = #{memberNickname}
+			,member_post_num = #{memberPostNum}
+			,member_addr = #{memberAddr}
+			,member_detail_addr = #{memberDetailAddr}
+			,member_phone = #{memberPhone}
+			,member_email = #{memberEmail}
+		WHERE 
+			member_id = #{memberId}
+	</update>
 	
 	<select id="getMemberInfoById" parameterType="String" resultMap="memberResultMap">
 		/* 회원별 회원 정보 조회*/
 		SELECT
-		     member_id
+		     m.member_id
 		    ,m.member_name
 			,m.member_level
 			,m.member_pw
 			,m.member_nickname
+			,m.member_post_num
 			,m.member_addr
+			,m.member_detail_addr
 			,m.member_phone
 			,m.member_birth
 			,m.member_email
@@ -80,7 +149,7 @@
 		FROM
 		   member AS m
 		WHERE
-		   m.m_id = #{memberId};
+		   m.member_id = #{memberId};
 	</select>
 	
 	<update id="modifySellerGrade" parameterType="SellerGrade">
@@ -210,7 +279,9 @@
 			INNER JOIN
 			member AS m
 			ON
-			s.member_id = m.member_id;
+			s.member_id = m.member_id
+		WHERE
+			m.member_level = '판매자';
 	</select>
 	
 	<select id="getMemberList" resultMap="memberResultMap">

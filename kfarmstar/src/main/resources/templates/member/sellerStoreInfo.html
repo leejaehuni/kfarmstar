@@ -89,7 +89,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr th:each="l : ${sellerStoreList}" class="even pointer">
+								<tr th:if="${not #lists.isEmpty(sellerStoreList)}" th:each="l : ${sellerStoreList}" class="even pointer">
 									<td class="a-center">
 										<input type="checkbox" class="flat" name="table_records">
 									</td>
@@ -100,7 +100,7 @@
 									<td th:text="${l.sellerStorePhone}"></td>
 									<td th:text="${l.sellerEntryDate}"></td>
 									<td>
-										<a th:href="@{/member/detailSellerStoreInfo}"><button type="button">상세 조회</button></a>
+										<a th:href="@{/member/detailSellerStoreInfo(sellerStoreNum=${l.sellerStoreNum})}"><button type="button">상세 조회</button></a>
 									</td>
 								</tr>
 							</tbody>

@@ -24,6 +24,20 @@ public class MemberService {
 		this.memberMapper = memberMapper;
 	}
 	
+	public List<SellerStore> conditionSellerStoreList(String searchKey, String searchValue){
+		
+		List<SellerStore> conditionSellerStoreList = memberMapper.conditionSellerStoreList(searchKey, searchValue);
+		
+		return conditionSellerStoreList;
+	}
+	
+	public List<Member> conditionMemberList(String searchKey, String searchValue){
+		
+		List<Member> conditionMemberList = memberMapper.conditionMemberList(searchKey, searchValue);
+		
+		return conditionMemberList;
+	}
+	
 	public int modifySellerStore(SellerStore sellerStore) {
 		
 		return memberMapper.modifySellerStore(sellerStore);

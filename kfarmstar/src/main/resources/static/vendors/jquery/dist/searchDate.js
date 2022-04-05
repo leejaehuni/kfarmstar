@@ -75,6 +75,14 @@ $(document).ready(function(){
         yearSuffix: '년'
     });
     
+    $('.datepicker').datepicker({
+	    beforeShow: function() {
+	        setTimeout(function(){
+	            $('.ui-datepicker').css('z-index', 99999999999999);
+	        }, 0);
+	    }
+	});
+    
 });
 
 

@@ -23,6 +23,7 @@
 		$(function(){
 			$('#modifyButton').click(function(){
 				$('input').attr("readonly",false);
+				$('select').attr("disabled",false)
 			});
 		});
 		</script>
@@ -178,7 +179,15 @@
 											<label class="control-label" for="sellerTaxType">과세구분</label>
 										</div>
 										<div class="col-md-6 col-sm-6 ">
-											<input type="text" class="form-control" name="sellerTaxType" th:value="${sellerStore.sellerTaxType}" readonly="readonly">
+											<select name="sellerTaxType" class="form-control" disabled="disabled" th:value="${sellerStore.sellerTaxType}">
+												<option value=""> :: 과세구분 :: </option>
+												<option th:selected="${sellerStore.sellerTaxType == '개인사업자'}">개인사업자</option>
+												<option th:selected="${sellerStore.sellerTaxType == '법인사업자'}">법인사업자</option>
+												<option th:selected="${sellerStore.sellerTaxType == '과세사업자'}">과세사업자</option>
+												<option th:selected="${sellerStore.sellerTaxType == '면세사업자'}">면세사업자</option>
+												<option th:selected="${sellerStore.sellerTaxType == '일반과세자'}">일반과세자</option>
+												<option th:selected="${sellerStore.sellerTaxType == '간이과세자'}">간이과세자</option>
+											</select>
 										</div>
 									</div>
 									<div class="form-group row">

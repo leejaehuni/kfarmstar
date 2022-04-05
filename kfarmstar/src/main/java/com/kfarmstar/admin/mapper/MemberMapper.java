@@ -11,6 +11,14 @@ import com.kfarmstar.dto.SellerStore;
 @Mapper
 public interface MemberMapper {
 	
+	
+	
+	//조건별 판매자 사업장 조회
+	public List<SellerStore> conditionSellerStoreList(String searchKey, String searchValue);
+	
+	//조건별 회원 조회
+	public List<Member> conditionMemberList(String searchKey, String searchValue);
+	
 	//판매자 사업장 정보 수정
 	public int modifySellerStore(SellerStore sellerStore);
 	

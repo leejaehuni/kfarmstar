@@ -89,6 +89,34 @@ public class MemberController {
 		return "member/memberList";
 	}
 	
+	@GetMapping("/conditionSellerStoreList")
+	public String conditionSellerStoreList(Model model
+											,@RequestParam(value="searchKey", required = false) String searchKey
+											,@RequestParam(value="searchValue", required = false) String searchValue) {
+		
+		log.info("조건별 판매자 사업장 검색:{}", searchValue);
+		
+		List<SellerStore> conditionSellerStoreList = memberService.conditionSellerStoreList(searchKey, searchValue);
+		
+		model.addAttribute("sellerStoreList", conditionSellerStoreList);
+		
+		return "member/sellerStoreInfo";
+	}
+	
+	@GetMapping("/conditionMemberList")
+	public String conditionMemberList(Model model
+											,@RequestParam(value="searchKey", required = false) String searchKey
+											,@RequestParam(value="searchValue", required = false) String searchValue) {
+		
+		log.info("조건별 회원 검색:{}", searchValue);
+		
+		List<Member> conditionMemberList = memberService.conditionMemberList(searchKey, searchValue);
+		
+		model.addAttribute("memberList", conditionMemberList);
+		
+		return "member/memberList";
+	}
+	
 	@PostMapping("/searchDate")
 	@ResponseBody
 	public List<Member> searchDate(@RequestParam(value="searchKey", required = false) String searchKey

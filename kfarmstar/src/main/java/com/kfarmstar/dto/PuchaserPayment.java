@@ -14,6 +14,9 @@ public class PuchaserPayment {
 	private String deliveryDetailAddr;
 	private String recipientName;
 	private String recipientPhone;
+	
+	private Goods goods;
+	private Member member;
 	public String getPurchaserPaymentCode() {
 		return purchaserPaymentCode;
 	}
@@ -86,6 +89,18 @@ public class PuchaserPayment {
 	public void setRecipientPhone(String recipientPhone) {
 		this.recipientPhone = recipientPhone;
 	}
+	public Goods getGoods() {
+		return goods;
+	}
+	public void setGoods(Goods goods) {
+		this.goods = goods;
+	}
+	public Member getMember() {
+		return member;
+	}
+	public void setMember(Member member) {
+		this.member = member;
+	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -113,10 +128,12 @@ public class PuchaserPayment {
 		builder.append(recipientName);
 		builder.append(", recipientPhone=");
 		builder.append(recipientPhone);
+		builder.append(", goods=");
+		builder.append(goods);
+		builder.append(", member=");
+		builder.append(member);
 		builder.append("]");
 		return builder.toString();
 	}
-	
-	
 	
 }

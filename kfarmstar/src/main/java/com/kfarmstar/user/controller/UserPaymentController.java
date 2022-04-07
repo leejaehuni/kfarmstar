@@ -29,6 +29,9 @@ public class UserPaymentController {
 	public String basketPurchase(Model model) {
 		
 		model.addAttribute("title", "Food Refurb : 장바구니");
+		model.addAttribute("breadTitle", "Shopping Cart");
+		model.addAttribute("breadSubTitle", "Shopping Cart");
+		
 		
 		return "userPayment/basketPurchase";
 	}

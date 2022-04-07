@@ -6,6 +6,7 @@ public class AfterPayment {
 	private String purchaserPaymentCode;
 	private String goodsRefurbCode;
 	private String memberId;
+	private String paymentTypeCode;
 	private int beforeGoodsCount;
 	private int midSumPrice;
 	private String paymentOption;
@@ -18,6 +19,7 @@ public class AfterPayment {
 	private PuchaserPayment puchaserPayment;
 	private Goods goods;
 	private Member member;
+	private PaymentType paymentType;
 	public String getPaymentCompleteCode() {
 		return paymentCompleteCode;
 	}
@@ -41,6 +43,12 @@ public class AfterPayment {
 	}
 	public void setMemberId(String memberId) {
 		this.memberId = memberId;
+	}
+	public String getPaymentTypeCode() {
+		return paymentTypeCode;
+	}
+	public void setPaymentTypeCode(String paymentTypeCode) {
+		this.paymentTypeCode = paymentTypeCode;
 	}
 	public int getBeforeGoodsCount() {
 		return beforeGoodsCount;
@@ -108,7 +116,12 @@ public class AfterPayment {
 	public void setMember(Member member) {
 		this.member = member;
 	}
-	
+	public PaymentType getPaymentType() {
+		return paymentType;
+	}
+	public void setPaymentType(PaymentType paymentType) {
+		this.paymentType = paymentType;
+	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -120,6 +133,8 @@ public class AfterPayment {
 		builder.append(goodsRefurbCode);
 		builder.append(", memberId=");
 		builder.append(memberId);
+		builder.append(", paymentTypeCode=");
+		builder.append(paymentTypeCode);
 		builder.append(", beforeGoodsCount=");
 		builder.append(beforeGoodsCount);
 		builder.append(", midSumPrice=");
@@ -142,9 +157,10 @@ public class AfterPayment {
 		builder.append(goods);
 		builder.append(", member=");
 		builder.append(member);
+		builder.append(", paymentType=");
+		builder.append(paymentType);
 		builder.append("]");
 		return builder.toString();
 	}
-	
 	
 }
